@@ -19,9 +19,11 @@ class FirstStartLauncher:
         if self.iml_folder.exists() or self.mc_folder.exists():
             # noinspection PyTypeChecker
             warn_msgbox = QMessageBox.warning(None, '注意',
-                                '文件夹内存在可能的冲突，是否继续初始化（冲突的文件夹将会被删除）',
+                                '文件夹内存在可能的冲突，是否继续初始化（冲突的文件夹将会被删除）\n'
+                                '点击 是 自动处理冲突\n点击 忽略 忽略此警告（可能会引发错误）\n点击 否 退出程序',
                                 QMessageBox.Yes | QMessageBox.No | QMessageBox.Ignore, QMessageBox.No)
 
+            # 一堆构式逻辑，将就用吧
             if warn_msgbox == QMessageBox.Yes and self.iml_folder.exists():
                 self.handle_folder_conflict(self.iml_folder)
             elif warn_msgbox == QMessageBox.Yes and not self.iml_folder.exists():

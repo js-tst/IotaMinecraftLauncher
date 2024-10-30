@@ -114,10 +114,6 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout_7)
 
-        self.progressBar = QProgressBar(self.centralwidget)
-        self.progressBar.setObjectName(u"progressBar")
-        self.progressBar.setGeometry(QRect(30, 350, 341, 23))
-        self.progressBar.setValue(0)
         self.horizontalLayoutWidget_3 = QWidget(self.centralwidget)
         self.horizontalLayoutWidget_3.setObjectName(u"horizontalLayoutWidget_3")
         self.horizontalLayoutWidget_3.setGeometry(QRect(30, 140, 341, 51))
@@ -144,13 +140,25 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.comboBox)
 
-        self.pushButton_2 = QPushButton(self.horizontalLayoutWidget_3)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        self.pushButton_3 = QPushButton(self.horizontalLayoutWidget_3)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Fixed)
         sizePolicy2.setHorizontalStretch(0)
         sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.pushButton_2.sizePolicy().hasHeightForWidth())
-        self.pushButton_2.setSizePolicy(sizePolicy2)
+        sizePolicy2.setHeightForWidth(self.pushButton_3.sizePolicy().hasHeightForWidth())
+        self.pushButton_3.setSizePolicy(sizePolicy2)
+        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh))
+        self.pushButton_3.setIcon(icon1)
+
+        self.horizontalLayout_3.addWidget(self.pushButton_3)
+
+        self.pushButton_2 = QPushButton(self.horizontalLayoutWidget_3)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.pushButton_2.sizePolicy().hasHeightForWidth())
+        self.pushButton_2.setSizePolicy(sizePolicy3)
 
         self.horizontalLayout_3.addWidget(self.pushButton_2)
 
@@ -183,6 +191,28 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_4.addWidget(self.pushButton)
 
+        self.horizontalLayoutWidget_5 = QWidget(self.centralwidget)
+        self.horizontalLayoutWidget_5.setObjectName(u"horizontalLayoutWidget_5")
+        self.horizontalLayoutWidget_5.setGeometry(QRect(30, 350, 341, 24))
+        self.horizontalLayout_5 = QHBoxLayout(self.horizontalLayoutWidget_5)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.label_7 = QLabel(self.horizontalLayoutWidget_5)
+        self.label_7.setObjectName(u"label_7")
+
+        self.horizontalLayout_5.addWidget(self.label_7)
+
+        self.label_8 = QLabel(self.horizontalLayoutWidget_5)
+        self.label_8.setObjectName(u"label_8")
+
+        self.horizontalLayout_5.addWidget(self.label_8)
+
+        self.progressBar = QProgressBar(self.horizontalLayoutWidget_5)
+        self.progressBar.setObjectName(u"progressBar")
+        self.progressBar.setValue(0)
+
+        self.horizontalLayout_5.addWidget(self.progressBar)
+
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -197,8 +227,11 @@ class Ui_MainWindow(object):
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"运行设置", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"最大运行内存(Gbyte)", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"版本列表", None))
+        self.pushButton_3.setText("")
         self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"下载版本", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"选择版本", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"启动", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"状态：", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"下载版本", None))
     # retranslateUi
 
