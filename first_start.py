@@ -1,5 +1,6 @@
 import pathlib
 import shutil
+import sys
 
 from PySide6.QtWidgets import QMessageBox
 
@@ -23,12 +24,17 @@ class FirstStartLauncher:
 
             if warn_msgbox == QMessageBox.Yes and self.iml_folder.exists():
                 self.handle_folder_conflict(self.iml_folder)
-            else:
+            elif warn_msgbox == QMessageBox.Yes and not self.iml_folder.exists():
                 self.iml_folder.mkdir()
             if warn_msgbox == QMessageBox.Yes and self.mc_folder.exists():
                 self.handle_folder_conflict(self.mc_folder)
-            else:
+            elif warn_msgbox == QMessageBox.Yes and not self.mc_folder.exists():
                 self.mc_folder.mkdir()
+
+            if warn_msgbox == QMessageBox.Ignore:
+                pass
+            if warn_msgbox == QMessageBox.No:
+                sys.exit(0)
         else:
             self.mc_folder.mkdir()
             self.iml_folder.mkdir()
