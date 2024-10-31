@@ -3,6 +3,7 @@ import sys
 from PySide6.QtCore import QTranslator, QLibraryInfo
 from PySide6.QtWidgets import QApplication, QMainWindow
 
+import files_getter
 import first_start
 import main_window
 
@@ -15,6 +16,17 @@ class MainWindow(QMainWindow):
         # Setup pyside6-uic生成的窗口
         self.ui = main_window.Ui_MainWindow()
         self.ui.setupUi(self)
+
+        self.refresh = self.ui.refresh
+        self.refresh.clicked.connect(self.refresh_version_list)
+
+        self.version_list = self.ui.version_list
+
+
+    @staticmethod
+    def refresh_version_list():
+        fg = files_getter.GetDownloadVersion()
+        fg.get_version()
 
 
 # 主函数
