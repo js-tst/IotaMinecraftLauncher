@@ -131,12 +131,13 @@ class Ui_MainWindow(object):
 
         self.version_list = QComboBox(self.horizontalLayoutWidget_3)
         self.version_list.setObjectName(u"version_list")
-        self.version_list.setEnabled(False)
+        self.version_list.setEnabled(True)
         sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.version_list.sizePolicy().hasHeightForWidth())
         self.version_list.setSizePolicy(sizePolicy1)
+        self.version_list.setEditable(False)
 
         self.horizontalLayout_3.addWidget(self.version_list)
 
@@ -179,12 +180,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_4.addItem(self.horizontalSpacer_4)
 
-        self.comboBox_2 = QComboBox(self.horizontalLayoutWidget_4)
-        self.comboBox_2.setObjectName(u"comboBox_2")
-        sizePolicy1.setHeightForWidth(self.comboBox_2.sizePolicy().hasHeightForWidth())
-        self.comboBox_2.setSizePolicy(sizePolicy1)
+        self.combox = QComboBox(self.horizontalLayoutWidget_4)
+        self.combox.setObjectName(u"combox")
+        sizePolicy1.setHeightForWidth(self.combox.sizePolicy().hasHeightForWidth())
+        self.combox.setSizePolicy(sizePolicy1)
 
-        self.horizontalLayout_4.addWidget(self.comboBox_2)
+        self.horizontalLayout_4.addWidget(self.combox)
 
         self.pushButton = QPushButton(self.horizontalLayoutWidget_4)
         self.pushButton.setObjectName(u"pushButton")

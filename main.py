@@ -1,4 +1,5 @@
 import sys
+from types import NoneType
 
 from PySide6.QtCore import QTranslator, QLibraryInfo
 from PySide6.QtWidgets import QApplication, QMainWindow
@@ -23,10 +24,13 @@ class MainWindow(QMainWindow):
         self.version_list = self.ui.version_list
 
 
-    @staticmethod
-    def refresh_version_list():
+    def refresh_version_list(self):
         fg = files_getter.GetDownloadVersion()
-        fg.get_version()
+        v_list = fg.get_version()
+
+        self.version_list.clear()
+
+        self.version_list.addItems(v_list)
 
 
 # 主函数

@@ -1,7 +1,7 @@
 import json
 import pathlib
 import urllib.request
-from typing import TextIO
+from typing import TextIO, List
 
 import path_list
 
@@ -12,7 +12,7 @@ class GetDownloadVersion:
         self.tempcache = pathlib.Path(path_list.TMP_CACHE)
         self.filepath= pathlib.Path(self.tempcache, 'version_manifest.json')
 
-    def get_version(self):
+    def get_version(self) -> List[str]:
         if not self.tempcache.exists():
             self.tempcache.mkdir()
 
