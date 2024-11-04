@@ -1,6 +1,6 @@
 import sys
-from types import NoneType
 
+from concurrent.futures.thread import ThreadPoolExecutor
 from PySide6.QtCore import QTranslator, QLibraryInfo
 from PySide6.QtWidgets import QApplication, QMainWindow
 
@@ -19,7 +19,8 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
 
         self.refresh = self.ui.refresh
-        self.refresh.clicked.connect(self.refresh_version_list)
+        t = ThreadPoolExecutor(max_workers=1)
+        self.refresh.clicked.connect(lambda :t.submit(self.refresh_version_list))
 
         self.version_list = self.ui.version_list
 
