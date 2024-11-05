@@ -6,15 +6,23 @@ from PySide6.QtWidgets import QMessageBox
 
 import path_list
 
-
+"""
+这个类是用来首次启动处理文件夹冲突的
+写的依托构式，姑且先这么用着吧（
+"""
 class FirstStartLauncher:
     def __init__(self):
         # .minecraft文件夹路径
         self.mc_folder = pathlib.Path(path_list.MC_FOLDER)
         # .IML文件夹路径
         self.iml_folder = pathlib.Path(path_list.IML_FOLDER)
+        # 首次启动标志文件
+        self.fsf = pathlib.Path(path_list.FIRST_START_FLAG)
 
     def first_start_launcher(self):
+        # 判断首次启动的标志文件是否存在
+        if self.fsf.exists():
+            return
         # 检查文件夹是否存在
         if self.iml_folder.exists() or self.mc_folder.exists():
             # noinspection PyTypeChecker
@@ -25,11 +33,11 @@ class FirstStartLauncher:
 
             # 一堆构式逻辑，将就用吧
             if warn_msgbox == QMessageBox.Yes and self.iml_folder.exists():
-                self.handle_folder_conflict(self.iml_folder)
+                self._handle_folder_conflict(self.iml_folder)
             elif warn_msgbox == QMessageBox.Yes and not self.iml_folder.exists():
                 self.iml_folder.mkdir()
             if warn_msgbox == QMessageBox.Yes and self.mc_folder.exists():
-                self.handle_folder_conflict(self.mc_folder)
+                self._handle_folder_conflict(self.mc_folder)
             elif warn_msgbox == QMessageBox.Yes and not self.mc_folder.exists():
                 self.mc_folder.mkdir()
 
@@ -41,9 +49,11 @@ class FirstStartLauncher:
             self.mc_folder.mkdir()
             self.iml_folder.mkdir()
 
+        self.fsf.touch()
+
 
     @staticmethod
-    def handle_folder_conflict(path):
+    def _handle_folder_conflict(path):
         # 文件夹冲突排查
         if not path.is_dir():
             path.unlink()
