@@ -1,7 +1,6 @@
 import pathlib
 import shutil
 import sys
-
 from PySide6.QtWidgets import QMessageBox
 
 import path_list

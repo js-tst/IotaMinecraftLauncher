@@ -24,7 +24,10 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
+        MainWindow.setEnabled(True)
         MainWindow.resize(400, 700)
+        MainWindow.setMinimumSize(QSize(400, 700))
+        MainWindow.setMaximumSize(QSize(400, 700))
         icon = QIcon()
         icon.addFile(u"icon.ico", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         MainWindow.setWindowIcon(icon)
@@ -153,15 +156,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.refresh)
 
-        self.pushButton_2 = QPushButton(self.horizontalLayoutWidget_3)
-        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.download_version = QPushButton(self.horizontalLayoutWidget_3)
+        self.download_version.setObjectName(u"download_version")
         sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
         sizePolicy3.setHorizontalStretch(0)
         sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.pushButton_2.sizePolicy().hasHeightForWidth())
-        self.pushButton_2.setSizePolicy(sizePolicy3)
+        sizePolicy3.setHeightForWidth(self.download_version.sizePolicy().hasHeightForWidth())
+        self.download_version.setSizePolicy(sizePolicy3)
 
-        self.horizontalLayout_3.addWidget(self.pushButton_2)
+        self.horizontalLayout_3.addWidget(self.download_version)
 
         self.horizontalLayoutWidget_4 = QWidget(self.centralwidget)
         self.horizontalLayoutWidget_4.setObjectName(u"horizontalLayoutWidget_4")
@@ -229,7 +232,7 @@ class Ui_MainWindow(object):
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"最大运行内存(Gbyte)", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"版本列表", None))
         self.refresh.setText("")
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"下载版本", None))
+        self.download_version.setText(QCoreApplication.translate("MainWindow", u"下载版本", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"选择版本", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"启动", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"状态：", None))
