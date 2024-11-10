@@ -82,7 +82,7 @@ class Ui_MainWindow(object):
         self.textEdit.setAcceptRichText(True)
         self.verticalLayoutWidget = QWidget(self.centralwidget)
         self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(30, 190, 341, 61))
+        self.verticalLayoutWidget.setGeometry(QRect(30, 220, 341, 61))
         self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -117,55 +117,6 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout_7)
 
-        self.horizontalLayoutWidget_3 = QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_3.setObjectName(u"horizontalLayoutWidget_3")
-        self.horizontalLayoutWidget_3.setGeometry(QRect(30, 140, 341, 51))
-        self.horizontalLayout_3 = QHBoxLayout(self.horizontalLayoutWidget_3)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.label_5 = QLabel(self.horizontalLayoutWidget_3)
-        self.label_5.setObjectName(u"label_5")
-
-        self.horizontalLayout_3.addWidget(self.label_5)
-
-        self.horizontalSpacer_5 = QSpacerItem(25, 20, QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_3.addItem(self.horizontalSpacer_5)
-
-        self.version_list = QComboBox(self.horizontalLayoutWidget_3)
-        self.version_list.setObjectName(u"version_list")
-        self.version_list.setEnabled(True)
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.version_list.sizePolicy().hasHeightForWidth())
-        self.version_list.setSizePolicy(sizePolicy1)
-        self.version_list.setEditable(False)
-
-        self.horizontalLayout_3.addWidget(self.version_list)
-
-        self.refresh = QPushButton(self.horizontalLayoutWidget_3)
-        self.refresh.setObjectName(u"refresh")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Fixed)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.refresh.sizePolicy().hasHeightForWidth())
-        self.refresh.setSizePolicy(sizePolicy2)
-        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh))
-        self.refresh.setIcon(icon1)
-
-        self.horizontalLayout_3.addWidget(self.refresh)
-
-        self.download_version = QPushButton(self.horizontalLayoutWidget_3)
-        self.download_version.setObjectName(u"download_version")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.download_version.sizePolicy().hasHeightForWidth())
-        self.download_version.setSizePolicy(sizePolicy3)
-
-        self.horizontalLayout_3.addWidget(self.download_version)
-
         self.horizontalLayoutWidget_4 = QWidget(self.centralwidget)
         self.horizontalLayoutWidget_4.setObjectName(u"horizontalLayoutWidget_4")
         self.horizontalLayoutWidget_4.setGeometry(QRect(30, 280, 341, 51))
@@ -185,6 +136,9 @@ class Ui_MainWindow(object):
 
         self.combox = QComboBox(self.horizontalLayoutWidget_4)
         self.combox.setObjectName(u"combox")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.combox.sizePolicy().hasHeightForWidth())
         self.combox.setSizePolicy(sizePolicy1)
 
@@ -217,6 +171,79 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_5.addWidget(self.progressBar)
 
+        self.verticalLayoutWidget_2 = QWidget(self.centralwidget)
+        self.verticalLayoutWidget_2.setObjectName(u"verticalLayoutWidget_2")
+        self.verticalLayoutWidget_2.setGeometry(QRect(30, 140, 341, 80))
+        self.verticalLayout_2 = QVBoxLayout(self.verticalLayoutWidget_2)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_6 = QHBoxLayout()
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.label_9 = QLabel(self.verticalLayoutWidget_2)
+        self.label_9.setObjectName(u"label_9")
+
+        self.horizontalLayout_6.addWidget(self.label_9)
+
+        self.version_name = QLineEdit(self.verticalLayoutWidget_2)
+        self.version_name.setObjectName(u"version_name")
+
+        self.horizontalLayout_6.addWidget(self.version_name)
+
+        self.horizontalSpacer_5 = QSpacerItem(140, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_6.addItem(self.horizontalSpacer_5)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_6)
+
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.label_5 = QLabel(self.verticalLayoutWidget_2)
+        self.label_5.setObjectName(u"label_5")
+
+        self.horizontalLayout_3.addWidget(self.label_5)
+
+        self.version_type = QComboBox(self.verticalLayoutWidget_2)
+        self.version_type.addItem("")
+        self.version_type.addItem("")
+        self.version_type.setObjectName(u"version_type")
+
+        self.horizontalLayout_3.addWidget(self.version_type)
+
+        self.version_list = QComboBox(self.verticalLayoutWidget_2)
+        self.version_list.setObjectName(u"version_list")
+        self.version_list.setEnabled(True)
+        sizePolicy1.setHeightForWidth(self.version_list.sizePolicy().hasHeightForWidth())
+        self.version_list.setSizePolicy(sizePolicy1)
+        self.version_list.setEditable(False)
+
+        self.horizontalLayout_3.addWidget(self.version_list)
+
+        self.refresh = QPushButton(self.verticalLayoutWidget_2)
+        self.refresh.setObjectName(u"refresh")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.refresh.sizePolicy().hasHeightForWidth())
+        self.refresh.setSizePolicy(sizePolicy2)
+        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh))
+        self.refresh.setIcon(icon1)
+
+        self.horizontalLayout_3.addWidget(self.refresh)
+
+        self.download_version = QPushButton(self.verticalLayoutWidget_2)
+        self.download_version.setObjectName(u"download_version")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.download_version.sizePolicy().hasHeightForWidth())
+        self.download_version.setSizePolicy(sizePolicy3)
+
+        self.horizontalLayout_3.addWidget(self.download_version)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_3)
+
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -230,12 +257,16 @@ class Ui_MainWindow(object):
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"玩家名", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"运行设置", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"最大运行内存(Gbyte)", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"版本列表", None))
-        self.refresh.setText("")
-        self.download_version.setText(QCoreApplication.translate("MainWindow", u"下载版本", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"选择版本", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"启动", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"状态：", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"下载版本", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"版本名称", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"版本列表", None))
+        self.version_type.setItemText(0, QCoreApplication.translate("MainWindow", u"Release", None))
+        self.version_type.setItemText(1, QCoreApplication.translate("MainWindow", u"Snapshot", None))
+
+        self.refresh.setText("")
+        self.download_version.setText(QCoreApplication.translate("MainWindow", u"下载版本", None))
     # retranslateUi
 
