@@ -1,6 +1,8 @@
 from concurrent.futures.thread import ThreadPoolExecutor
 from pathlib import Path
-from PySide6.QtWidgets import QMainWindow
+from webbrowser import Error
+
+from PySide6.QtWidgets import QMainWindow, QMessageBox
 
 import files_getter
 import main_window
@@ -26,7 +28,7 @@ class MainWindow(QMainWindow):
         # 实例化线程池
         self.tpe = ThreadPoolExecutor(max_workers=1)
         # 实例化 GetDownloadVersion 类
-        self.get = files_getter.GetDownloadVersion()
+        self.get = files_getter.GetDownloadVersion(self.manifest_path)
 
         # 刷新按钮
         self.refresh = self.ui.refresh
@@ -53,7 +55,7 @@ class MainWindow(QMainWindow):
             if not self.tempcache.exists():
                 self.tempcache.mkdir()
 
-            v_list = self.get.get_version(v_type, self.manifest_path)
+            v_list = self.get.get_version(v_type)
 
             self.version_list.addItems(v_list)
 
@@ -65,7 +67,16 @@ class MainWindow(QMainWindow):
 
 
     def download_select_version(self):
+        if self.version_name.text() == '' or self.version_list.currentText() == '':
+            QMessageBox.warning(self, '警告', '版本或版本名称不能为空')
+            return
+
+        version_path_name = Path(self.version_folder, self.version_name.text())
+        version_json = Path(version_path_name, self.version_name.text() + '.json')
+
         if not self.version_folder.exists():
             self.version_folder.mkdir()
+        if not version_path_name.exists():
+            version_path_name.mkdir()
 
-        self.get.download_version_json(self.manifest_path, self.version_list.currentText(), self.version_folder, self.version_name.text())
+        self.get.download_version_json(self.version_list.currentText(), version_json)

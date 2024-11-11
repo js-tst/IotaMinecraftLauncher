@@ -7,11 +7,12 @@ import path_list
 
 
 class GetDownloadVersion:
-    def __init__(self):
-        self.url: str = 'https://piston-meta.mojang.com/mc/game/version_manifest.json'
+    def __init__(self, manifest_path: Path):
+        self.url: str = path_list.VERSION_MANIFEST_URL
+        self.manifest_path: Path = manifest_path
 
 
-    def get_version(self, v_type: str, manifest_path: Path) -> list[str]:
+    def get_version(self, v_type: str) -> list[str]:
         """
         下载 version_manifest.json 并获取版本列表的方法
 
@@ -19,9 +20,9 @@ class GetDownloadVersion:
 
         返回一个版本列表，类型为 list[str]
         """
-        urllib.request.urlretrieve(url=self.url, filename=manifest_path)
+        urllib.request.urlretrieve(url=self.url, filename=self.manifest_path)
 
-        with open(manifest_path) as version_file:
+        with open(self.manifest_path) as version_file:
             version_load: dict = json.loads(version_file.read())
 
         version_list: list[str]= []
@@ -33,18 +34,8 @@ class GetDownloadVersion:
         return version_list
 
 
-    @staticmethod
-    def download_version_json(manifest_path: Path, version_id: str, version_path: Path, version_name: str) -> None:
-        # if version_id or version_name == '':
-        #     print("test")
-        #     return
-
-        version_path_name = Path(version_path, version_name)
-        version_json = Path(version_path_name, version_name + '.json')
-        if not version_path_name.exists():
-            version_path_name.mkdir()
-
-        with open(manifest_path) as version_file:
+    def download_version_json(self, version_id: str, version_json: Path) -> None:
+        with open(self.manifest_path) as version_file:
             version_load: dict = json.loads(version_file.read())
 
         version_url = next((i["url"] for i in version_load["versions"] if i["id"] == version_id), None)

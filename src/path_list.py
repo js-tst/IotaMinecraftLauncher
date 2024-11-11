@@ -15,3 +15,9 @@ VERSION_FOLDER:   Path = Path(MC_FOLDER, 'versions')
 PathName          Type   Path
 """
 VERSION_MANIFEST: Path = Path(TEMP_CACHE, 'version_manifest.json')
+
+"""
+--------------URLPaths-------------
+PathName              Type   Path
+"""
+VERSION_MANIFEST_URL: str = 'https://piston-meta.mojang.com/mc/game/version_manifest.json'

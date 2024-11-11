@@ -4,6 +4,7 @@ import sys
 from PySide6.QtWidgets import QMessageBox
 
 import path_list
+import window_features
 
 """
 这个类是用来首次启动处理文件夹冲突的
@@ -25,7 +26,7 @@ class FirstStartLauncher:
         # 检查文件夹是否存在
         if self.iml_folder.exists() or self.mc_folder.exists():
             # noinspection PyTypeChecker
-            warn_msgbox = QMessageBox.warning(None, '注意',
+            warn_msgbox = QMessageBox.warning(window_features.MainWindow(), '注意',
                                 '文件夹内存在可能的冲突，是否继续初始化（冲突的文件夹将会被删除）\n'
                                 '点击 是 自动处理冲突\n点击 忽略 忽略此警告（可能会引发错误）\n点击 否 退出程序',
                                 QMessageBox.Yes | QMessageBox.No | QMessageBox.Ignore, QMessageBox.No)
