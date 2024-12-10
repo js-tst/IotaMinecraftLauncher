@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'MainWindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.8.0
+## Created by: Qt User Interface Compiler version 6.8.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -134,15 +134,27 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_4.addItem(self.horizontalSpacer_4)
 
-        self.combox = QComboBox(self.horizontalLayoutWidget_4)
-        self.combox.setObjectName(u"combox")
+        self.select_version_list = QComboBox(self.horizontalLayoutWidget_4)
+        self.select_version_list.setObjectName(u"select_version_list")
         sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.combox.sizePolicy().hasHeightForWidth())
-        self.combox.setSizePolicy(sizePolicy1)
+        sizePolicy1.setHeightForWidth(self.select_version_list.sizePolicy().hasHeightForWidth())
+        self.select_version_list.setSizePolicy(sizePolicy1)
 
-        self.horizontalLayout_4.addWidget(self.combox)
+        self.horizontalLayout_4.addWidget(self.select_version_list)
+
+        self.refresh_select_list = QPushButton(self.horizontalLayoutWidget_4)
+        self.refresh_select_list.setObjectName(u"refresh_select_list")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.refresh_select_list.sizePolicy().hasHeightForWidth())
+        self.refresh_select_list.setSizePolicy(sizePolicy2)
+        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh))
+        self.refresh_select_list.setIcon(icon1)
+
+        self.horizontalLayout_4.addWidget(self.refresh_select_list)
 
         self.pushButton = QPushButton(self.horizontalLayoutWidget_4)
         self.pushButton.setObjectName(u"pushButton")
@@ -151,7 +163,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayoutWidget_5 = QWidget(self.centralwidget)
         self.horizontalLayoutWidget_5.setObjectName(u"horizontalLayoutWidget_5")
-        self.horizontalLayoutWidget_5.setGeometry(QRect(30, 350, 341, 24))
+        self.horizontalLayoutWidget_5.setGeometry(QRect(30, 350, 341, 25))
         self.horizontalLayout_5 = QHBoxLayout(self.horizontalLayoutWidget_5)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
@@ -173,7 +185,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayoutWidget_2 = QWidget(self.centralwidget)
         self.verticalLayoutWidget_2.setObjectName(u"verticalLayoutWidget_2")
-        self.verticalLayoutWidget_2.setGeometry(QRect(30, 140, 341, 80))
+        self.verticalLayoutWidget_2.setGeometry(QRect(30, 140, 350, 80))
         self.verticalLayout_2 = QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -210,26 +222,22 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.version_type)
 
-        self.version_list = QComboBox(self.verticalLayoutWidget_2)
-        self.version_list.setObjectName(u"version_list")
-        self.version_list.setEnabled(True)
-        sizePolicy1.setHeightForWidth(self.version_list.sizePolicy().hasHeightForWidth())
-        self.version_list.setSizePolicy(sizePolicy1)
-        self.version_list.setEditable(False)
+        self.download_version_list = QComboBox(self.verticalLayoutWidget_2)
+        self.download_version_list.setObjectName(u"download_version_list")
+        self.download_version_list.setEnabled(True)
+        sizePolicy1.setHeightForWidth(self.download_version_list.sizePolicy().hasHeightForWidth())
+        self.download_version_list.setSizePolicy(sizePolicy1)
+        self.download_version_list.setEditable(False)
 
-        self.horizontalLayout_3.addWidget(self.version_list)
+        self.horizontalLayout_3.addWidget(self.download_version_list)
 
-        self.refresh = QPushButton(self.verticalLayoutWidget_2)
-        self.refresh.setObjectName(u"refresh")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Fixed)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.refresh.sizePolicy().hasHeightForWidth())
-        self.refresh.setSizePolicy(sizePolicy2)
-        icon1 = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.ViewRefresh))
-        self.refresh.setIcon(icon1)
+        self.refresh_download_list = QPushButton(self.verticalLayoutWidget_2)
+        self.refresh_download_list.setObjectName(u"refresh_download_list")
+        sizePolicy2.setHeightForWidth(self.refresh_download_list.sizePolicy().hasHeightForWidth())
+        self.refresh_download_list.setSizePolicy(sizePolicy2)
+        self.refresh_download_list.setIcon(icon1)
 
-        self.horizontalLayout_3.addWidget(self.refresh)
+        self.horizontalLayout_3.addWidget(self.refresh_download_list)
 
         self.download_version = QPushButton(self.verticalLayoutWidget_2)
         self.download_version.setObjectName(u"download_version")
@@ -258,6 +266,7 @@ class Ui_MainWindow(object):
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"运行设置", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"最大运行内存(Gbyte)", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"选择版本", None))
+        self.refresh_select_list.setText("")
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"启动", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"状态：", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"下载版本", None))
@@ -266,7 +275,7 @@ class Ui_MainWindow(object):
         self.version_type.setItemText(0, QCoreApplication.translate("MainWindow", u"Release", None))
         self.version_type.setItemText(1, QCoreApplication.translate("MainWindow", u"Snapshot", None))
 
-        self.refresh.setText("")
+        self.refresh_download_list.setText("")
         self.download_version.setText(QCoreApplication.translate("MainWindow", u"下载版本", None))
     # retranslateUi
 

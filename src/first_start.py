@@ -1,10 +1,9 @@
-import pathlib
 import shutil
 import sys
 from PySide6.QtWidgets import QMessageBox
 
-import path_list
 import window_features
+from path_list import FolderPaths, FilePaths
 
 """
 这个类是用来首次启动处理文件夹冲突的
@@ -13,11 +12,11 @@ import window_features
 class FirstStartLauncher:
     def __init__(self):
         # .minecraft文件夹路径
-        self.mc_folder = pathlib.Path(path_list.MC_FOLDER)
+        self.mc_folder = FolderPaths.MC_FOLDER
         # .IML文件夹路径
-        self.iml_folder = pathlib.Path(path_list.IML_FOLDER)
+        self.iml_folder = FolderPaths.IML_FOLDER
         # 首次启动标志文件
-        self.fsf = pathlib.Path(path_list.FIRST_START_FLAG)
+        self.fsf = FilePaths.FIRST_START_FLAG
 
     def first_start_launcher(self):
         # 判断首次启动的标志文件是否存在
